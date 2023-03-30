@@ -5,6 +5,7 @@ export const FontFamily = {
 };
 /* font sizes */
 export const FontSize = {
+  size_31xl: 50,
   body2SemiBold_size: 14,
   caption1Medium_size: 12,
   title3SemiBold_size: 18,

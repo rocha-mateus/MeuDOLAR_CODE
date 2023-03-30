@@ -1,37 +1,33 @@
 import * as React from "react";
 import {
-  StyleSheet,
-  View,
   Image,
+  StyleSheet,
   Text,
+  View,
   Pressable,
   StatusBar,
 } from "react-native";
 import MenuContainer from "../components/MenuContainer";
-import { Color, FontFamily, Border, FontSize } from "../GlobalStyles";
+import GRAFICO from "../components/GRAFICO";
+import DOLARPrice from "../components/DOLARPrice";
+import { FontSize, FontFamily, Color } from "../GlobalStyles";
 
 const HOME = () => {
   return (
     <View style={styles.home}>
       <MenuContainer />
-      <View style={[styles.grafico, styles.graficoPosition]}>
-        <View style={[styles.cardVector, styles.graficoPosition]} />
-      </View>
+      <GRAFICO />
       <View style={styles.dolarAgora}>
         <Image
           style={styles.dolarIcon}
           resizeMode="cover"
           source={require("../assets/dolaricon.png")}
         />
-        <Text style={[styles.dolarText, styles.dolarSpaceBlock]}>
-          DÓLAR AGORA!
-        </Text>
-        <Text style={[styles.dolarPrice, styles.dolarPriceTypo]}>$5,29</Text>
+        <Text style={styles.dolarText}>DÓLAR AGORA!</Text>
+        <DOLARPrice />
       </View>
       <View style={[styles.header, styles.headerPosition]}>
-        <Text style={[styles.boasvindas, styles.dolarPriceTypo]}>
-          Bem-vinda,Maria!
-        </Text>
+        <Text style={styles.boasvindas}>Bem-vinda,Maria!</Text>
         <Image
           style={styles.userButtomIcon}
           resizeMode="cover"
@@ -49,42 +45,11 @@ const HOME = () => {
 };
 
 const styles = StyleSheet.create({
-  graficoPosition: {
-    width: 316,
-    left: "50%",
-    top: "50%",
-    position: "absolute",
-  },
-  dolarSpaceBlock: {
-    marginTop: 13,
-    display: "flex",
-    lineHeight: 20,
-    alignItems: "center",
-  },
-  dolarPriceTypo: {
-    color: Color.neutral5,
-    fontFamily: FontFamily.title3SemiBold,
-    fontWeight: "600",
-    textAlign: "left",
-  },
   headerPosition: {
     width: 375,
     top: 0,
     left: 0,
     position: "absolute",
-  },
-  cardVector: {
-    marginTop: -97.5,
-    marginLeft: -158,
-    borderRadius: Border.br_xl,
-    backgroundColor: Color.background2,
-    height: 195,
-  },
-  grafico: {
-    marginTop: 44,
-    height: 209,
-    marginLeft: -158.5,
-    width: 316,
   },
   dolarIcon: {
     width: 24,
@@ -92,27 +57,16 @@ const styles = StyleSheet.create({
   },
   dolarText: {
     fontSize: FontSize.body2SemiBold_size,
+    lineHeight: 20,
     fontWeight: "500",
     fontFamily: FontFamily.body2SemiBold,
     color: Color.secundary,
+    display: "flex",
     width: 105,
     height: 19,
+    marginTop: 13,
     textAlign: "left",
-    marginTop: 13,
-    display: "flex",
-    lineHeight: 20,
-  },
-  dolarPrice: {
-    fontSize: 50,
-    width: 150,
-    height: 44,
-    marginTop: 13,
-    display: "flex",
-    lineHeight: 20,
     alignItems: "center",
-    color: Color.neutral5,
-    fontFamily: FontFamily.title3SemiBold,
-    fontWeight: "600",
   },
   dolarAgora: {
     top: 262,
@@ -124,14 +78,15 @@ const styles = StyleSheet.create({
   },
   boasvindas: {
     marginTop: 29.5,
+    marginLeft: -158.5,
+    top: "50%",
+    left: "50%",
     fontSize: 32,
     lineHeight: 37,
-    color: Color.neutral5,
-    fontFamily: FontFamily.title3SemiBold,
     fontWeight: "600",
-    left: "50%",
-    top: "50%",
-    marginLeft: -158.5,
+    fontFamily: FontFamily.title3SemiBold,
+    color: Color.neutral5,
+    textAlign: "left",
     position: "absolute",
   },
   userButtomIcon: {
