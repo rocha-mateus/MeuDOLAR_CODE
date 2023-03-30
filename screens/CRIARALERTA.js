@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { Switch as RNPSwitch } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
-import { Color, FontSize, FontFamily } from "../GlobalStyles";
+import { Color, FontSize, FontFamily, Border } from "../GlobalStyles";
 
 const CRIARALERTA = () => {
   const [switchOffValue, setSwitchOffValue] = useState(true);
@@ -63,14 +63,14 @@ const CRIARALERTA = () => {
       </View>
       <View style={[styles.price, styles.priceLayout]}>
         <TextInput
-          style={styles.dolarPrice}
+          style={[styles.dolarPrice, styles.dolarPricePosition]}
           placeholder="$0,00"
           keyboardType="number-pad"
         />
       </View>
       <View style={styles.moedas}>
-        <Text style={[styles.brlText, styles.textTypo3]}>BRL</Text>
-        <Text style={[styles.realText, styles.textTypo]}>Real</Text>
+        <Text style={[styles.brlText, styles.textTypo4]}>BRL</Text>
+        <Text style={[styles.realText, styles.textTypo1]}>Real</Text>
         <Image
           style={[styles.realIcon, styles.iconLayout]}
           resizeMode="cover"
@@ -81,8 +81,8 @@ const CRIARALERTA = () => {
           resizeMode="cover"
           source={require("../assets/retornovector.png")}
         />
-        <Text style={[styles.usdText, styles.textTypo3]}>USD</Text>
-        <Text style={[styles.dolarText, styles.textTypo]}>Dólar</Text>
+        <Text style={[styles.usdText, styles.textTypo4]}>USD</Text>
+        <Text style={[styles.dolarText, styles.textTypo1]}>Dólar</Text>
         <Image
           style={[styles.dolarIcon, styles.iconLayout]}
           resizeMode="cover"
@@ -90,7 +90,7 @@ const CRIARALERTA = () => {
         />
       </View>
       <View style={[styles.header, styles.priceLayout]}>
-        <Text style={[styles.adicionaralertaTitle, styles.textTypo]}>
+        <Text style={[styles.adicionaralertaTitle, styles.textTypo1]}>
           Adicionar Alerta
         </Text>
         <Pressable
@@ -98,7 +98,7 @@ const CRIARALERTA = () => {
           onPress={() => navigation.goBack()}
         >
           <Image
-            style={styles.icon}
+            style={[styles.icon, styles.iconLayout1]}
             resizeMode="cover"
             source={require("../assets/voltarbuttom.png")}
           />
@@ -109,6 +109,47 @@ const CRIARALERTA = () => {
           translucent={true}
           backgroundColor="#16171d"
         />
+      </View>
+      <View style={[styles.menu, styles.menuPosition]}>
+        <Image
+          style={[styles.baseMenuIcon, styles.menuPosition]}
+          resizeMode="cover"
+          source={require("../assets/basemenu.png")}
+        />
+        <Text style={[styles.venderText, styles.textTypo]}>Vender</Text>
+        <Text style={[styles.comprarText, styles.textTypo]}>Comprar</Text>
+        <Text style={[styles.alertasText, styles.textTypo]}>Alertas</Text>
+        <Text style={[styles.homeText, styles.textTypo]}>Home</Text>
+        <Image
+          style={[styles.venderButtomIcon, styles.buttomIconLayout]}
+          resizeMode="cover"
+          source={require("../assets/venderbuttom.png")}
+        />
+        <Image
+          style={[styles.comprarButtomIcon, styles.buttomIconLayout]}
+          resizeMode="cover"
+          source={require("../assets/comprarbuttom.png")}
+        />
+        <Image
+          style={[styles.alertasButtomIcon, styles.buttomIconPosition]}
+          resizeMode="cover"
+          source={require("../assets/alertasbuttom.png")}
+        />
+        <Image
+          style={[styles.homeButtomIcon, styles.buttomIconPosition]}
+          resizeMode="cover"
+          source={require("../assets/homebuttom.png")}
+        />
+        <Pressable
+          style={[styles.maisButtom, styles.dolarPricePosition]}
+          onPress={() => navigation.navigate("CRIARALERTA")}
+        >
+          <Image
+            style={[styles.icon, styles.iconLayout1]}
+            resizeMode="cover"
+            source={require("../assets/mais-buttom.png")}
+          />
+        </Pressable>
       </View>
     </View>
   );
@@ -143,14 +184,17 @@ const styles = StyleSheet.create({
   iconLayout1: {
     maxHeight: "100%",
     maxWidth: "100%",
-    position: "absolute",
     overflow: "hidden",
   },
   priceLayout: {
     width: 375,
     position: "absolute",
   },
-  textTypo3: {
+  dolarPricePosition: {
+    top: "0%",
+    position: "absolute",
+  },
+  textTypo4: {
     textAlign: "center",
     color: Color.secundary,
     top: "84.73%",
@@ -160,7 +204,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     position: "absolute",
   },
-  textTypo: {
+  textTypo1: {
     fontFamily: FontFamily.title3SemiBold,
     fontWeight: "600",
     textAlign: "center",
@@ -176,6 +220,39 @@ const styles = StyleSheet.create({
     maxHeight: "100%",
     position: "absolute",
   },
+  menuPosition: {
+    width: 455,
+    bottom: 0,
+    left: "50%",
+    position: "absolute",
+  },
+  textTypo: {
+    color: Color.selection,
+    lineHeight: 16,
+    fontSize: FontSize.caption1Medium_size,
+    top: 78,
+    textAlign: "left",
+    fontFamily: FontFamily.body2SemiBold,
+    fontWeight: "500",
+    position: "absolute",
+  },
+  buttomIconLayout: {
+    bottom: "42.01%",
+    width: "4.73%",
+    height: "17.62%",
+    top: "40.37%",
+    maxHeight: "100%",
+    maxWidth: "100%",
+    position: "absolute",
+    overflow: "hidden",
+  },
+  buttomIconPosition: {
+    top: "40.37%",
+    maxHeight: "100%",
+    maxWidth: "100%",
+    position: "absolute",
+    overflow: "hidden",
+  },
   button1: {
     color: Color.neutral,
     textAlign: "left",
@@ -185,7 +262,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.title3SemiBold_size,
   },
   button: {
-    top: 152,
+    top: 139,
     borderRadius: 12,
     backgroundColor: Color.primary,
     height: 48,
@@ -197,7 +274,7 @@ const styles = StyleSheet.create({
     left: 0,
   },
   cardVector: {
-    borderRadius: 20,
+    borderRadius: Border.br_xl,
     backgroundColor: Color.background2,
     height: 110,
     width: 316,
@@ -217,6 +294,7 @@ const styles = StyleSheet.create({
     right: "85.27%",
     bottom: "51.13%",
     left: "5.46%",
+    position: "absolute",
   },
   divisorIcon: {
     top: 55,
@@ -239,24 +317,24 @@ const styles = StyleSheet.create({
     right: "86.53%",
     bottom: "83.13%",
     left: "6.72%",
+    position: "absolute",
   },
   card: {
-    top: 417,
+    top: 392,
     left: 30,
     height: 200,
   },
   dolarPrice: {
     left: 74,
-    top: "0%",
     height: "100%",
-    position: "absolute",
   },
   price: {
     marginTop: -109,
-    marginLeft: -187.5,
+    marginLeft: -190.5,
     top: "50%",
-    left: "50%",
     height: 66,
+    left: "50%",
+    width: 375,
   },
   brlText: {
     left: 178,
@@ -278,6 +356,7 @@ const styles = StyleSheet.create({
     right: "41.08%",
     bottom: "45.79%",
     left: "48.35%",
+    position: "absolute",
   },
   usdText: {
     left: 19,
@@ -308,9 +387,6 @@ const styles = StyleSheet.create({
   },
   icon: {
     height: "100%",
-    maxHeight: "100%",
-    maxWidth: "100%",
-    overflow: "hidden",
     width: "100%",
   },
   voltarButtom: {
@@ -326,6 +402,55 @@ const styles = StyleSheet.create({
     height: 75,
     top: 0,
     left: 0,
+  },
+  baseMenuIcon: {
+    marginLeft: -187.5,
+    height: 96,
+  },
+  venderText: {
+    left: 352,
+  },
+  comprarText: {
+    left: 271,
+  },
+  alertasText: {
+    left: 139,
+  },
+  homeText: {
+    left: 61,
+  },
+  venderButtomIcon: {
+    right: "15.44%",
+    left: "79.84%",
+  },
+  comprarButtomIcon: {
+    right: "31.92%",
+    left: "63.35%",
+  },
+  alertasButtomIcon: {
+    height: "18.22%",
+    width: "4.29%",
+    right: "62.81%",
+    bottom: "41.41%",
+    left: "32.9%",
+  },
+  homeButtomIcon: {
+    height: "18.28%",
+    width: "4.91%",
+    right: "80.07%",
+    bottom: "41.35%",
+    left: "15.02%",
+  },
+  maisButtom: {
+    left: "44.4%",
+    right: "44.18%",
+    bottom: "57.38%",
+    width: "11.43%",
+    height: "42.62%",
+  },
+  menu: {
+    marginLeft: -227.5,
+    height: 122,
   },
   criarAlerta: {
     backgroundColor: Color.neutral,

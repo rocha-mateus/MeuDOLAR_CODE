@@ -19,3 +19,7 @@ export const Color = {
   selection: "#787a8d",
   primary: "#00ff5f",
 };
+/* border radiuses */
+export const Border = {
+  br_xl: 20,
+};

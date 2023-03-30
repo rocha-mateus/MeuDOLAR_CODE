@@ -1,34 +1,39 @@
 import * as React from "react";
 import {
-  Text,
   StyleSheet,
-  Image,
   View,
+  Image,
+  Text,
   Pressable,
   StatusBar,
 } from "react-native";
 import MenuContainer from "../components/MenuContainer";
-import { Color, FontFamily, FontSize } from "../GlobalStyles";
+import { Color, FontFamily, Border, FontSize } from "../GlobalStyles";
 
 const HOME = () => {
   return (
     <View style={styles.home}>
       <MenuContainer />
+      <View style={[styles.grafico, styles.graficoPosition]}>
+        <View style={[styles.cardVector, styles.graficoPosition]} />
+      </View>
       <View style={styles.dolarAgora}>
-        <Text style={[styles.dolarPrice, styles.dolarFlexBox]}>$5,29</Text>
-        <Text style={[styles.dolarText, styles.dolarFlexBox]}>
-          DÓLAR AGORA!
-        </Text>
         <Image
-          style={[styles.dolarIcon, styles.iconLayout]}
+          style={styles.dolarIcon}
           resizeMode="cover"
           source={require("../assets/dolaricon.png")}
         />
+        <Text style={[styles.dolarText, styles.dolarSpaceBlock]}>
+          DÓLAR AGORA!
+        </Text>
+        <Text style={[styles.dolarPrice, styles.dolarPriceTypo]}>$5,29</Text>
       </View>
       <View style={[styles.header, styles.headerPosition]}>
-        <Text style={styles.boasvindas}>Bem-vinda,Maria!</Text>
+        <Text style={[styles.boasvindas, styles.dolarPriceTypo]}>
+          Bem-vinda,Maria!
+        </Text>
         <Image
-          style={[styles.userButtomIcon, styles.iconLayout]}
+          style={styles.userButtomIcon}
           resizeMode="cover"
           source={require("../assets/userbuttom.png")}
         />
@@ -44,72 +49,89 @@ const HOME = () => {
 };
 
 const styles = StyleSheet.create({
-  dolarFlexBox: {
-    alignItems: "center",
+  graficoPosition: {
+    width: 316,
+    left: "50%",
+    top: "50%",
+    position: "absolute",
+  },
+  dolarSpaceBlock: {
+    marginTop: 13,
     display: "flex",
     lineHeight: 20,
-    textAlign: "left",
-    position: "absolute",
+    alignItems: "center",
   },
-  iconLayout: {
-    maxHeight: "100%",
-    position: "absolute",
-  },
-  headerPosition: {
-    top: 0,
-    width: 375,
-    left: 0,
-    position: "absolute",
-  },
-  dolarPrice: {
-    height: "39.29%",
-    top: "60.71%",
-    left: 29,
-    fontSize: 50,
-    width: 150,
+  dolarPriceTypo: {
     color: Color.neutral5,
     fontFamily: FontFamily.title3SemiBold,
     fontWeight: "600",
-    display: "flex",
-    lineHeight: 20,
+    textAlign: "left",
+  },
+  headerPosition: {
+    width: 375,
+    top: 0,
+    left: 0,
+    position: "absolute",
+  },
+  cardVector: {
+    marginTop: -97.5,
+    marginLeft: -158,
+    borderRadius: Border.br_xl,
+    backgroundColor: Color.background2,
+    height: 195,
+  },
+  grafico: {
+    marginTop: 44,
+    height: 209,
+    marginLeft: -158.5,
+    width: 316,
+  },
+  dolarIcon: {
+    width: 24,
+    height: 24,
   },
   dolarText: {
-    height: "16.96%",
-    top: "2.68%",
-    left: 66,
     fontSize: FontSize.body2SemiBold_size,
     fontWeight: "500",
     fontFamily: FontFamily.body2SemiBold,
     color: Color.secundary,
     width: 105,
+    height: 19,
+    textAlign: "left",
+    marginTop: 13,
     display: "flex",
     lineHeight: 20,
   },
-  dolarIcon: {
-    height: "21.43%",
-    top: "0%",
-    bottom: "78.57%",
-    left: 31,
-    width: 24,
+  dolarPrice: {
+    fontSize: 50,
+    width: 150,
+    height: 44,
+    marginTop: 13,
+    display: "flex",
+    lineHeight: 20,
+    alignItems: "center",
+    color: Color.neutral5,
+    fontFamily: FontFamily.title3SemiBold,
+    fontWeight: "600",
   },
   dolarAgora: {
     top: 262,
-    height: 112,
-    width: 375,
+    paddingHorizontal: 29,
+    paddingVertical: 0,
+    alignItems: "center",
     left: 0,
     position: "absolute",
   },
   boasvindas: {
     marginTop: 29.5,
-    marginLeft: -158.5,
-    top: "50%",
-    left: "50%",
     fontSize: 32,
     lineHeight: 37,
-    textAlign: "left",
     color: Color.neutral5,
     fontFamily: FontFamily.title3SemiBold,
     fontWeight: "600",
+    left: "50%",
+    top: "50%",
+    marginLeft: -158.5,
     position: "absolute",
   },
   userButtomIcon: {
@@ -117,7 +139,9 @@ const styles = StyleSheet.create({
     top: "64.73%",
     right: 30,
     bottom: "15.94%",
+    maxHeight: "100%",
     width: 40,
+    position: "absolute",
   },
   header: {
     height: 207,
