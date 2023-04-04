@@ -8,6 +8,11 @@ const DOLARPrice = () => {
 
 const styles = StyleSheet.create({
   dolarPrice: {
+    position: "absolute",
+    height: "5.42%",
+    width: "40%",
+    top: "37.68%",
+    left: "7.73%",
     fontSize: FontSize.size_31xl,
     lineHeight: 20,
     fontWeight: "600",
@@ -16,9 +21,6 @@ const styles = StyleSheet.create({
     textAlign: "left",
     display: "flex",
     alignItems: "center",
-    width: 150,
-    height: 44,
-    marginTop: 13,
   },
 });
 

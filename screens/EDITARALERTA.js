@@ -10,29 +10,35 @@ import {
 } from "react-native";
 import { Switch as RNPSwitch } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
-import { Color, FontSize, FontFamily, Border } from "../GlobalStyles";
+import { Border, FontFamily, FontSize, Color } from "../GlobalStyles";
 
-const CRIARALERTA = () => {
+const EDITARALERTA = () => {
   const [switchOffValue, setSwitchOffValue] = useState(true);
   const [switchOnValue, setSwitchOnValue] = useState(true);
   const navigation = useNavigation();
 
   return (
-    <View style={styles.criarAlerta}>
+    <View style={styles.editarAlerta}>
       <Pressable
-        style={[styles.salvarButton, styles.cardPosition]}
+        style={[styles.salvarButton, styles.buttonLayout]}
         onPress={() => navigation.goBack()}
       >
-        <Text style={styles.salvarLabel}>Salvar</Text>
+        <Text style={[styles.salvarLabel, styles.labelTypo1]}>Salvar</Text>
       </Pressable>
-      <View style={[styles.card, styles.cardPosition]}>
+      <Pressable
+        style={[styles.excluirButton, styles.buttonLayout]}
+        onPress={() => navigation.goBack()}
+      >
+        <Text style={[styles.excluirLabel, styles.labelTypo1]}>Excluir</Text>
+      </Pressable>
+      <View style={[styles.card, styles.iconPosition]}>
         <RNPSwitch
           style={[styles.switchOff, styles.switchPosition]}
           value={switchOffValue}
           onValueChange={setSwitchOffValue}
           color="#a7aebf"
         />
-        <Text style={[styles.menorLabel, styles.labelTypo4]}>
+        <Text style={[styles.menorLabel, styles.labelTypo]}>
           Menor do que R$5,19
         </Text>
         <Image
@@ -51,7 +57,7 @@ const CRIARALERTA = () => {
           onValueChange={setSwitchOnValue}
           color="#00ff5f"
         />
-        <Text style={[styles.maiorLabel, styles.labelTypo4]}>
+        <Text style={[styles.maiorLabel, styles.labelTypo]}>
           Maior do que R$5,19
         </Text>
         <Image
@@ -64,11 +70,10 @@ const CRIARALERTA = () => {
         style={[styles.dolarInput, styles.iconPosition]}
         placeholder="$0,00"
         keyboardType="number-pad"
-        autoCapitalize="none"
       />
-      <View style={styles.moedas}>
-        <Text style={[styles.brlLabel, styles.labelTypo3]}>BRL</Text>
-        <Text style={[styles.realLabel, styles.labelTypo]}>Real</Text>
+      <View style={[styles.moedas, styles.iconPosition]}>
+        <Text style={[styles.brlText, styles.brlTextTypo]}>BRL</Text>
+        <Text style={[styles.realText, styles.realTextTypo]}>Real</Text>
         <Image
           style={[styles.realIcon, styles.iconLayout]}
           resizeMode="cover"
@@ -79,8 +84,8 @@ const CRIARALERTA = () => {
           resizeMode="cover"
           source={require("../assets/retornovector.png")}
         />
-        <Text style={[styles.usdLabel, styles.labelTypo3]}>USD</Text>
-        <Text style={[styles.dolarLabel, styles.labelTypo]}>Dólar</Text>
+        <Text style={[styles.usdLabel, styles.brlTextTypo]}>USD</Text>
+        <Text style={[styles.dolarLabel, styles.realTextTypo]}>Dólar</Text>
         <Image
           style={[styles.dolarIcon, styles.iconLayout]}
           resizeMode="cover"
@@ -88,11 +93,11 @@ const CRIARALERTA = () => {
         />
       </View>
       <View style={[styles.header, styles.headerPosition]}>
-        <Text style={[styles.adicionaralertaTitle, styles.labelTypo]}>
-          Adicionar Alerta
+        <Text style={[styles.adicionaralertaTitle, styles.realTextTypo]}>
+          Editar Alerta
         </Text>
         <Pressable
-          style={styles.voltarButtom}
+          style={styles.voltarButton}
           onPress={() => navigation.goBack()}
         >
           <Image
@@ -113,8 +118,26 @@ const CRIARALERTA = () => {
 };
 
 const styles = StyleSheet.create({
-  cardPosition: {
-    width: 316,
+  buttonLayout: {
+    borderRadius: Border.br_xs,
+    bottom: "28.69%",
+    top: "65.39%",
+    width: "38.67%",
+    height: "5.91%",
+    position: "absolute",
+  },
+  labelTypo1: {
+    textAlign: "left",
+    fontFamily: FontFamily.label1,
+    fontWeight: "500",
+    lineHeight: 24,
+    top: "25%",
+    marginLeft: -29,
+    fontSize: FontSize.title3SemiBold_size,
+    left: "50%",
+    position: "absolute",
+  },
+  iconPosition: {
     left: "50%",
     position: "absolute",
   },
@@ -125,7 +148,7 @@ const styles = StyleSheet.create({
     height: "19.64%",
     position: "absolute",
   },
-  labelTypo4: {
+  labelTypo: {
     color: Color.neutral5,
     lineHeight: 20,
     fontSize: FontSize.label1_size,
@@ -140,11 +163,7 @@ const styles = StyleSheet.create({
     maxHeight: "100%",
     overflow: "hidden",
   },
-  iconPosition: {
-    left: "50%",
-    position: "absolute",
-  },
-  labelTypo3: {
+  brlTextTypo: {
     textAlign: "center",
     color: Color.secundary,
     top: "84.73%",
@@ -154,7 +173,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     position: "absolute",
   },
-  labelTypo: {
+  realTextTypo: {
     fontFamily: FontFamily.title3SemiBold,
     fontWeight: "600",
     textAlign: "center",
@@ -179,24 +198,22 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   salvarLabel: {
-    marginLeft: -29,
-    top: "25%",
     color: Color.neutral1,
-    textAlign: "left",
-    fontFamily: FontFamily.label1,
-    fontWeight: "500",
-    lineHeight: 24,
-    fontSize: FontSize.title3SemiBold_size,
-    left: "50%",
-    position: "absolute",
   },
   salvarButton: {
-    height: "5.91%",
-    marginLeft: -157.5,
-    top: "65.39%",
-    bottom: "28.69%",
-    borderRadius: Border.br_xs,
+    right: "8%",
+    left: "53.33%",
     backgroundColor: Color.primary,
+  },
+  excluirLabel: {
+    color: Color.primary,
+  },
+  excluirButton: {
+    right: "53.33%",
+    left: "8%",
+    borderStyle: "solid",
+    borderColor: "#00ff5f",
+    borderWidth: 2,
   },
   switchOff: {
     top: "64.29%",
@@ -242,11 +259,12 @@ const styles = StyleSheet.create({
   },
   card: {
     height: "13.79%",
-    marginLeft: -156.5,
+    marginLeft: -160.5,
     top: "48.28%",
     bottom: "37.93%",
     borderRadius: Border.br_xl,
     backgroundColor: Color.neutral,
+    width: 316,
     overflow: "hidden",
   },
   dolarInput: {
@@ -254,10 +272,10 @@ const styles = StyleSheet.create({
     marginLeft: -113.5,
     top: "36.58%",
   },
-  brlLabel: {
+  brlText: {
     left: "80.91%",
   },
-  realLabel: {
+  realText: {
     left: "74.09%",
     fontSize: FontSize.size_5xl,
     top: "61.07%",
@@ -270,7 +288,7 @@ const styles = StyleSheet.create({
   },
   retornoVectorIcon: {
     height: "16.81%",
-    marginLeft: -3.63,
+    marginLeft: -3.62,
     top: "37.4%",
     bottom: "45.79%",
     width: 23,
@@ -292,15 +310,13 @@ const styles = StyleSheet.create({
   },
   moedas: {
     height: "16.13%",
-    width: "58.67%",
+    marginLeft: -109.5,
     top: "17%",
-    right: "20.53%",
     bottom: "66.87%",
-    left: "20.8%",
-    position: "absolute",
+    width: 220,
   },
   adicionaralertaTitle: {
-    marginLeft: -74.5,
+    marginLeft: -56.5,
     top: "68%",
     fontFamily: FontFamily.title3SemiBold,
     fontWeight: "600",
@@ -312,7 +328,7 @@ const styles = StyleSheet.create({
     maxHeight: "100%",
     width: "100%",
   },
-  voltarButtom: {
+  voltarButton: {
     left: "8.33%",
     top: "75%",
     right: "86.73%",
@@ -328,7 +344,7 @@ const styles = StyleSheet.create({
     width: 375,
     marginLeft: -187.5,
   },
-  criarAlerta: {
+  editarAlerta: {
     backgroundColor: Color.neutral1,
     flex: 1,
     height: 812,
@@ -337,4 +353,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CRIARALERTA;
+export default EDITARALERTA;
