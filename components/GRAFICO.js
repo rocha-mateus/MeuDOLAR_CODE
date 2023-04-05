@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     bottom: "19.95%",
     left: "50%",
     borderRadius: Border.br_xl,
-    backgroundColor: Color.neutral,
+    backgroundColor: Color.background2,
     width: 316,
   },
 });

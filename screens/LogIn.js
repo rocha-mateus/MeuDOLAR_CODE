@@ -2,47 +2,52 @@ import * as React from "react";
 import {
   Text,
   StyleSheet,
+  Pressable,
   View,
   TextInput,
-  Pressable,
   Image,
   StatusBar,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { FontSize, Color, Border, FontFamily, Padding } from "../GlobalStyles";
+import { FontFamily, FontSize, Color, Border } from "../GlobalStyles";
 
 const LogIn = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={[styles.logIn, styles.iconLayout]}>
-      <View style={[styles.entrarButton, styles.emailInputFlexBox]}>
-        <Text style={styles.entrarLabel}>Entrar</Text>
-      </View>
+    <View style={[styles.login, styles.iconLayout]}>
       <View style={styles.novocriar}>
-        <Text style={[styles.novoLabel, styles.novoLabelTypo]}>
-          Novo no MeuDOLAR?
-        </Text>
-        <Text style={[styles.criarButton, styles.novoLabelTypo]}>
-          Crie uma conta!
-        </Text>
+        <Text style={styles.novoLabel}>Novo no MeuDOLAR?</Text>
+        <Pressable
+          style={styles.criarButton}
+          onPress={() => navigation.navigate("Cadastrar")}
+        >
+          <Text style={[styles.crieUmaConta, styles.entrarLabelTypo]}>
+            Crie uma conta!
+          </Text>
+        </Pressable>
       </View>
       <View style={[styles.header, styles.headerPosition]}>
-        <TextInput
-          style={[styles.senhaInput, styles.inputPosition]}
-          placeholder="Esqueceu sua senha?"
-          keyboardType="default"
-          placeholderTextColor="#00ff5f"
-        />
-        <Text style={[styles.senhaLabel, styles.labelTypo]}>Senha</Text>
-        <TextInput
-          style={[styles.emailInput, styles.inputPosition]}
-          placeholder="Insira sua conta de email"
-          keyboardType="email-address"
-          placeholderTextColor="#494d58"
-        />
-        <Text style={[styles.emailLabel, styles.labelTypo]}>{`Email `}</Text>
-        <Text style={styles.loginTitle}>Login</Text>
+        <View style={styles.input}>
+          <Pressable
+            style={styles.entrarButton}
+            onPress={() => navigation.toggleDrawer()}
+          >
+            <Text style={[styles.entrarLabel, styles.loginTitleLayout]}>
+              Entrar
+            </Text>
+          </Pressable>
+          <View style={[styles.senhaInput, styles.inputPosition]} />
+          <Text style={[styles.senhaLabel, styles.labelTypo]}>Senha</Text>
+          <TextInput
+            style={[styles.emailInput, styles.inputPosition]}
+            placeholder="Insira sua conta de email"
+            keyboardType="default"
+            placeholderTextColor="#494d58"
+          />
+          <Text style={[styles.emailLabel, styles.labelTypo]}>{`Email `}</Text>
+        </View>
+        <Text style={[styles.loginTitle, styles.loginTitleLayout]}>Login</Text>
         <Pressable
           style={styles.voltarButton}
           onPress={() => navigation.goBack()}
@@ -69,16 +74,10 @@ const styles = StyleSheet.create({
     width: "100%",
     overflow: "hidden",
   },
-  emailInputFlexBox: {
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  novoLabelTypo: {
-    lineHeight: 20,
-    fontSize: FontSize.label1_size,
-    top: "0%",
+  entrarLabelTypo: {
+    fontFamily: FontFamily.label1,
+    fontWeight: "500",
     textAlign: "left",
-    position: "absolute",
   },
   headerPosition: {
     width: 375,
@@ -86,60 +85,50 @@ const styles = StyleSheet.create({
     left: "50%",
     position: "absolute",
   },
-  inputPosition: {
-    backgroundColor: Color.neutral,
-    left: "6.4%",
-    right: "6.4%",
-    width: "87.2%",
-    height: "64%",
-    borderRadius: Border.br_xs,
+  loginTitleLayout: {
+    lineHeight: 24,
+    fontSize: FontSize.title3SemiBold_size,
     position: "absolute",
+  },
+  inputPosition: {
+    backgroundColor: Color.background2,
+    right: "0%",
+    borderRadius: Border.br_xs,
+    height: "15.38%",
+    left: "0%",
+    position: "absolute",
+    width: "100%",
   },
   labelTypo: {
     color: Color.neutral4,
-    left: "6.4%",
+    fontFamily: FontFamily.label1,
+    fontWeight: "500",
+    textAlign: "left",
     lineHeight: 20,
-    fontSize: FontSize.label1_size,
-    textAlign: "left",
-    fontFamily: FontFamily.label1,
-    fontWeight: "500",
-    position: "absolute",
-  },
-  entrarLabel: {
-    color: Color.neutral1,
-    textAlign: "left",
-    fontFamily: FontFamily.label1,
-    fontWeight: "500",
-    lineHeight: 24,
-    fontSize: FontSize.title3SemiBold_size,
-  },
-  entrarButton: {
-    height: "5.91%",
-    marginLeft: -163.5,
-    top: "45.81%",
-    bottom: "48.28%",
-    backgroundColor: Color.primary,
-    width: 327,
-    paddingHorizontal: Padding.p_xl,
-    paddingVertical: 12,
-    justifyContent: "center",
-    borderRadius: Border.br_xs,
-    flexDirection: "row",
-    left: "50%",
+    fontSize: FontSize.body2Regular_size,
+    left: "0%",
     position: "absolute",
   },
   novoLabel: {
+    fontFamily: FontFamily.body2Regular,
+    color: Color.neutral2,
+    textAlign: "left",
     left: "0%",
-    fontFamily: FontFamily.poppinsRegular,
-    color: Color.secundary,
+    lineHeight: 20,
+    fontSize: FontSize.body2Regular_size,
+    top: "0%",
+    position: "absolute",
+  },
+  crieUmaConta: {
+    color: Color.primary,
+    lineHeight: 20,
+    fontSize: FontSize.body2Regular_size,
+    fontWeight: "500",
   },
   criarButton: {
     left: "56.11%",
-    color: Color.primary,
-    fontFamily: FontFamily.label1,
-    fontWeight: "500",
-    lineHeight: 20,
-    fontSize: FontSize.label1_size,
+    top: "0%",
+    position: "absolute",
   },
   novocriar: {
     marginLeft: -131.5,
@@ -149,31 +138,47 @@ const styles = StyleSheet.create({
     left: "50%",
     position: "absolute",
   },
+  entrarLabel: {
+    top: 12,
+    left: 137,
+    color: Color.neutral1,
+    fontFamily: FontFamily.label1,
+    fontWeight: "500",
+    textAlign: "left",
+  },
+  entrarButton: {
+    top: "84.62%",
+    bottom: "0%",
+    backgroundColor: Color.primary,
+    borderRadius: Border.br_xs,
+    height: "15.38%",
+    width: 327,
+    marginLeft: -163.5,
+    left: "50%",
+    position: "absolute",
+  },
   senhaInput: {
-    top: "304%",
-    bottom: "-268%",
+    top: "38.46%",
+    bottom: "46.15%",
   },
   senhaLabel: {
-    top: "272%",
+    top: "30.77%",
   },
   emailInput: {
-    top: "176%",
-    bottom: "-140%",
-    paddingLeft: 16,
-    paddingTop: Padding.p_smi,
-    paddingRight: Padding.p_xl,
-    paddingBottom: Padding.p_smi,
-    fontFamily: "Poppins",
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: 16,
-    color: Color.background2,
-    lineHeight: 24,
-    alignItems: "center",
-    flexDirection: "row",
+    top: "7.69%",
+    bottom: "76.92%",
   },
   emailLabel: {
+    top: "0%",
+  },
+  input: {
+    height: "416%",
     top: "144%",
+    bottom: "-460%",
+    width: 327,
+    marginLeft: -163.5,
+    left: "50%",
+    position: "absolute",
   },
   loginTitle: {
     marginLeft: -24.5,
@@ -182,10 +187,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.title3SemiBold,
     color: Color.neutral5,
     textAlign: "center",
-    lineHeight: 24,
-    fontSize: FontSize.title3SemiBold_size,
     left: "50%",
-    position: "absolute",
   },
   icon: {
     height: "100%",
@@ -206,10 +208,8 @@ const styles = StyleSheet.create({
     height: "9.24%",
     bottom: "90.76%",
     top: "0%",
-    width: 375,
-    marginLeft: -187.5,
   },
-  logIn: {
+  login: {
     backgroundColor: Color.neutral1,
     flex: 1,
     height: 812,

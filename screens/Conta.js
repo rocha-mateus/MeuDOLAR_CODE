@@ -4,135 +4,69 @@ import {
   View,
   Image,
   Text,
-  TextInput,
-  StatusBar,
   Pressable,
+  StatusBar,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Color, FontFamily, FontSize } from "../GlobalStyles";
 
-const VENDER = () => {
+const Conta = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.vender}>
-      <View style={[styles.wise, styles.wisePosition]}>
+    <View style={styles.conta}>
+      <View style={[styles.musarSenha, styles.nomePosition]}>
         <View style={styles.divider} />
         <Image
-          style={[styles.iconArrow, styles.iconLayout2]}
-          resizeMode="cover"
-          source={require("../assets/iconarrow.png")}
-        />
-        <Text style={[styles.priceLabel, styles.priceTypo]}>R$ 0,00</Text>
-        <Text style={[styles.wiseName, styles.wiseNameClr]}>WISE</Text>
-        <Image
-          style={[styles.wiseLogoIcon, styles.iconLayout2]}
-          resizeMode="cover"
-          source={require("../assets/wiselogo.png")}
-        />
-      </View>
-      <View style={[styles.nubank, styles.wisePosition]}>
-        <View style={styles.divider} />
-        <Image
-          style={[styles.iconArrow, styles.iconLayout2]}
+          style={[styles.iconArrow, styles.iconLayout3]}
           resizeMode="cover"
           source={require("../assets/iconarrow1.png")}
         />
-        <Text style={[styles.priceLabel1, styles.priceTypo]}>R$ 0,00</Text>
-        <Text style={[styles.wiseName, styles.wiseNameClr]}>NUBANK</Text>
-        <Image
-          style={[styles.wiseLogoIcon, styles.iconLayout2]}
-          resizeMode="cover"
-          source={require("../assets/nubanklogo.png")}
-        />
+        <Text style={styles.musarSenha1}>Mudar Senha</Text>
       </View>
-      <View style={[styles.nomad, styles.wisePosition]}>
+      <View style={[styles.nome, styles.nomePosition]}>
         <View style={styles.divider} />
         <Image
-          style={[styles.iconArrow, styles.iconLayout2]}
-          resizeMode="cover"
-          source={require("../assets/iconarrow.png")}
-        />
-        <Text style={[styles.priceLabel1, styles.priceTypo]}>R$ 0,00</Text>
-        <Text style={[styles.wiseName, styles.wiseNameClr]}>NOMAD</Text>
-        <Image
-          style={[styles.wiseLogoIcon, styles.iconLayout2]}
-          resizeMode="cover"
-          source={require("../assets/nomadlogo.png")}
-        />
-      </View>
-      <View style={[styles.inter, styles.wisePosition]}>
-        <View style={styles.divider} />
-        <Image
-          style={[styles.iconArrow, styles.iconLayout2]}
+          style={[styles.iconArrow, styles.iconLayout3]}
           resizeMode="cover"
           source={require("../assets/iconarrow1.png")}
         />
-        <Text style={[styles.priceLabel1, styles.priceTypo]}>R$ 0,00</Text>
-        <Text style={[styles.wiseName, styles.wiseNameClr]}>INTER</Text>
-        <Image
-          style={[styles.wiseLogoIcon, styles.iconLayout2]}
-          resizeMode="cover"
-          source={require("../assets/interlogo.png")}
-        />
+        <Text style={[styles.nomeOutput, styles.outputTypo]}>Maria Silva</Text>
+        <Text style={styles.musarSenha1}>Nome</Text>
       </View>
-      <View style={[styles.c6Bank, styles.wisePosition]}>
+      <View style={[styles.email, styles.nomePosition]}>
         <View style={styles.divider} />
         <Image
-          style={[styles.iconArrow, styles.iconLayout2]}
+          style={[styles.iconArrow, styles.iconLayout3]}
           resizeMode="cover"
           source={require("../assets/iconarrow1.png")}
         />
-        <Text style={[styles.priceLabel1, styles.priceTypo]}>R$ 0,00</Text>
-        <Text style={[styles.wiseName, styles.wiseNameClr]}>C6 BANK</Text>
-        <Image
-          style={[styles.wiseLogoIcon, styles.iconLayout2]}
-          resizeMode="cover"
-          source={require("../assets/c6logo.png")}
+        <Text style={[styles.emailOutput, styles.outputTypo]}>
+          maria.silva@gmail.com
+        </Text>
+        <Text style={styles.musarSenha1}>Email</Text>
+      </View>
+      <View style={[styles.header, styles.headerPosition]}>
+        <Text style={[styles.minhaContaTitle, styles.maisButtonPosition]}>
+          Minha Conta
+        </Text>
+        <Pressable
+          style={styles.voltarButton}
+          onPress={() => navigation.goBack()}
+        >
+          <Image
+            style={[styles.icon, styles.iconLayout2]}
+            resizeMode="cover"
+            source={require("../assets/voltarbuttom.png")}
+          />
+        </Pressable>
+        <StatusBar
+          style={styles.headerPosition}
+          barStyle="default"
+          translucent={true}
+          backgroundColor="#16171d"
         />
       </View>
-      <View style={[styles.bs2go, styles.wisePosition]}>
-        <View style={styles.divider} />
-        <Image
-          style={[styles.iconArrow, styles.iconLayout2]}
-          resizeMode="cover"
-          source={require("../assets/iconarrow.png")}
-        />
-        <Text style={[styles.priceLabel1, styles.priceTypo]}>R$ 0,00</Text>
-        <Text style={[styles.wiseName, styles.wiseNameClr]}>BS2 GO</Text>
-        <Image
-          style={[styles.wiseLogoIcon, styles.iconLayout2]}
-          resizeMode="cover"
-          source={require("../assets/bs2gologo.png")}
-        />
-      </View>
-      <View style={[styles.avenue, styles.wisePosition]}>
-        <View style={styles.divider} />
-        <Image
-          style={[styles.iconArrow, styles.iconLayout2]}
-          resizeMode="cover"
-          source={require("../assets/iconarrow1.png")}
-        />
-        <Text style={[styles.priceLabel1, styles.priceTypo]}>R$ 0,00</Text>
-        <Text style={[styles.wiseName, styles.wiseNameClr]}>AVENUE</Text>
-        <Image
-          style={[styles.wiseLogoIcon, styles.iconLayout2]}
-          resizeMode="cover"
-          source={require("../assets/avenuelogo.png")}
-        />
-      </View>
-      <TextInput
-        style={[styles.realInput, styles.realInputPosition]}
-        placeholder="$0,00"
-        keyboardType="number-pad"
-      />
-      <Text style={[styles.comprarHeader, styles.wiseNameClr]}>Vender</Text>
-      <StatusBar
-        style={styles.realInputPosition}
-        barStyle="default"
-        translucent={true}
-        backgroundColor="#16171d"
-      />
       <View style={[styles.menu, styles.menuPosition]}>
         <Image
           style={[styles.menuBackgoundIcon, styles.menuPosition]}
@@ -224,11 +158,11 @@ const VENDER = () => {
           <Text style={[styles.homeLabel, styles.labelTypo]}>Home</Text>
         </Pressable>
         <Pressable
-          style={[styles.maisButton, styles.realInputPosition]}
+          style={[styles.maisButton, styles.maisButtonPosition]}
           onPress={() => navigation.navigate("CriarAlerta")}
         >
           <Image
-            style={styles.icon}
+            style={[styles.icon1, styles.iconLayout2]}
             resizeMode="cover"
             source={require("../assets/mais-buttom.png")}
           />
@@ -239,37 +173,40 @@ const VENDER = () => {
 };
 
 const styles = StyleSheet.create({
-  wisePosition: {
-    right: "7.73%",
-    width: "84.27%",
-    height: "6.71%",
-    left: "8%",
+  nomePosition: {
+    left: "8.53%",
+    right: "8%",
+    width: "83.47%",
+    height: "5.54%",
+    position: "absolute",
+  },
+  iconLayout3: {
+    maxHeight: "100%",
+    maxWidth: "100%",
+    overflow: "hidden",
+  },
+  outputTypo: {
+    textAlign: "right",
+    color: Color.neutral3,
+    fontFamily: FontFamily.body2Regular,
+    lineHeight: 20,
+    fontSize: FontSize.body2Regular_size,
+    top: "0%",
+    position: "absolute",
+  },
+  headerPosition: {
+    width: 375,
+    left: "50%",
+    marginLeft: -187.5,
+    position: "absolute",
+  },
+  maisButtonPosition: {
+    left: "50%",
     position: "absolute",
   },
   iconLayout2: {
-    maxHeight: "100%",
-    maxWidth: "100%",
-    position: "absolute",
-    overflow: "hidden",
-  },
-  priceTypo: {
-    textAlign: "left",
-    color: Color.primary,
-    fontFamily: FontFamily.label1,
-    fontWeight: "500",
-    lineHeight: 20,
-    fontSize: FontSize.body2Regular_size,
-    top: "18.35%",
-    position: "absolute",
-  },
-  wiseNameClr: {
-    color: Color.neutral5,
-    textAlign: "left",
-    position: "absolute",
-  },
-  realInputPosition: {
-    left: "50%",
-    position: "absolute",
+    height: "100%",
+    width: "100%",
   },
   menuPosition: {
     width: 455,
@@ -295,14 +232,14 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   labelTypo: {
-    color: Color.neutral3,
+    fontFamily: FontFamily.label1,
+    fontWeight: "500",
     lineHeight: 16,
     fontSize: FontSize.caption1Medium_size,
     bottom: 0,
     left: "50%",
+    color: Color.neutral3,
     textAlign: "left",
-    fontFamily: FontFamily.label1,
-    fontWeight: "500",
     position: "absolute",
   },
   comprarIconLayout: {
@@ -324,99 +261,91 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   divider: {
-    height: "1.83%",
-    width: "84.49%",
-    top: "99.08%",
+    height: "2.22%",
+    width: "100.32%",
+    top: "98.89%",
     right: "-0.16%",
-    bottom: "-0.92%",
-    left: "15.66%",
+    bottom: "-1.11%",
+    left: "-0.16%",
     borderStyle: "solid",
     borderColor: "#21242d",
     borderTopWidth: 1,
     position: "absolute",
   },
   iconArrow: {
-    height: "18.38%",
-    width: "1.96%",
-    top: "27.52%",
+    height: "22.26%",
+    width: "1.98%",
+    top: "13.33%",
     right: "0.26%",
-    bottom: "54.1%",
-    left: "97.78%",
+    bottom: "64.41%",
+    left: "97.76%",
+    position: "absolute",
   },
-  priceLabel: {
-    left: "70.89%",
-  },
-  wiseName: {
-    left: "18.67%",
-    fontFamily: FontFamily.label1,
-    fontWeight: "500",
+  musarSenha1: {
+    left: "0%",
+    textAlign: "left",
     lineHeight: 20,
     fontSize: FontSize.body2Regular_size,
-    top: "18.35%",
     color: Color.neutral5,
-  },
-  wiseLogoIcon: {
-    height: "73.39%",
-    width: "12.66%",
-    top: "0%",
-    right: "87.34%",
-    bottom: "26.61%",
-    left: "0%",
-  },
-  wise: {
-    top: "86.39%",
-    bottom: "6.9%",
-    left: "8%",
-  },
-  priceLabel1: {
-    left: "71.2%",
-  },
-  nubank: {
-    top: "77.71%",
-    bottom: "15.58%",
-    left: "8%",
-  },
-  nomad: {
-    top: "69.03%",
-    bottom: "24.26%",
-    left: "8%",
-  },
-  inter: {
-    top: "60.34%",
-    bottom: "32.94%",
-    left: "8%",
-  },
-  c6Bank: {
-    top: "51.23%",
-    bottom: "42.06%",
-    left: "8%",
-  },
-  bs2go: {
-    top: "42.55%",
-    bottom: "50.74%",
-    left: "8%",
-  },
-  avenue: {
-    top: "33.87%",
-    bottom: "59.42%",
-    left: "8%",
-  },
-  realInput: {
-    height: "8.13%",
-    marginLeft: -113.5,
-    top: "20.44%",
-  },
-  comprarHeader: {
-    top: "8.99%",
-    fontSize: FontSize.size_13xl,
-    lineHeight: 37,
-    fontWeight: "600",
     fontFamily: FontFamily.title3SemiBold,
-    left: "8%",
+    fontWeight: "600",
+    top: "0%",
+    position: "absolute",
+  },
+  musarSenha: {
+    top: "26.72%",
+    bottom: "67.73%",
+  },
+  nomeOutput: {
+    left: "67.73%",
+  },
+  nome: {
+    top: "17.73%",
+    bottom: "76.72%",
+  },
+  emailOutput: {
+    left: "38.98%",
+  },
+  email: {
+    top: "35.71%",
+    bottom: "58.74%",
+  },
+  minhaContaTitle: {
+    marginLeft: -59.5,
+    top: "68%",
+    fontSize: FontSize.title3SemiBold_size,
+    lineHeight: 24,
+    textAlign: "center",
+    color: Color.neutral5,
+    fontFamily: FontFamily.title3SemiBold,
+    fontWeight: "600",
+    left: "50%",
+  },
+  icon: {
+    maxHeight: "100%",
+    maxWidth: "100%",
+    overflow: "hidden",
+  },
+  voltarButton: {
+    left: "8.33%",
+    top: "75%",
+    right: "86.73%",
+    bottom: "6.81%",
+    width: "4.93%",
+    height: "18.19%",
+    position: "absolute",
+  },
+  header: {
+    height: "9.24%",
+    bottom: "90.76%",
+    top: "0%",
+    width: 375,
   },
   menuBackgoundIcon: {
     height: 96,
     marginLeft: -187.5,
+    width: 455,
+    bottom: 0,
   },
   venderVector03Icon: {
     width: "23.86%",
@@ -526,10 +455,8 @@ const styles = StyleSheet.create({
     right: "78.68%",
     left: "13.41%",
   },
-  icon: {
+  icon1: {
     marginLeft: -25.5,
-    height: "100%",
-    width: "100%",
   },
   maisButton: {
     bottom: 70,
@@ -540,7 +467,7 @@ const styles = StyleSheet.create({
     marginLeft: -227.5,
     height: 122,
   },
-  vender: {
+  conta: {
     backgroundColor: Color.neutral1,
     flex: 1,
     height: 812,
@@ -549,4 +476,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default VENDER;
+export default Conta;

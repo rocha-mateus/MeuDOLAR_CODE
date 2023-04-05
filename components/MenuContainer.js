@@ -15,7 +15,7 @@ const MenuContainer = () => {
       />
       <Pressable
         style={[styles.venderButton, styles.buttonPosition]}
-        onPress={() => navigation.navigate("VENDER")}
+        onPress={() => navigation.navigate("Vender")}
       >
         <Image
           style={[styles.venderVector03Icon, styles.venderIconLayout]}
@@ -36,7 +36,7 @@ const MenuContainer = () => {
       </Pressable>
       <Pressable
         style={[styles.comprarButtom, styles.buttonPosition]}
-        onPress={() => navigation.navigate("COMPRAR")}
+        onPress={() => navigation.navigate("Comprar")}
       >
         <Image
           style={[styles.comprarVector04Icon, styles.comprarIconLayout]}
@@ -62,7 +62,7 @@ const MenuContainer = () => {
       </Pressable>
       <Pressable
         style={[styles.alertasButton, styles.buttonPosition]}
-        onPress={() => navigation.navigate("ALERTAS")}
+        onPress={() => navigation.navigate("Alertas")}
       >
         <Image
           style={[styles.alertasVector02Icon, styles.iconLayout1]}
@@ -76,10 +76,7 @@ const MenuContainer = () => {
         />
         <Text style={[styles.alertasLabel, styles.labelTypo]}>Alertas</Text>
       </Pressable>
-      <Pressable
-        style={[styles.homeButton, styles.buttonPosition]}
-        onPress={() => navigation.navigate("LogIn")}
-      >
+      <Pressable style={[styles.homeButton, styles.buttonPosition]}>
         <Image
           style={[styles.homeVector03Icon, styles.iconLayout1]}
           resizeMode="cover"
@@ -99,7 +96,7 @@ const MenuContainer = () => {
       </Pressable>
       <Pressable
         style={styles.maisButton}
-        onPress={() => navigation.navigate("CRIARALERTA")}
+        onPress={() => navigation.navigate("CriarAlerta")}
       >
         <Image
           style={styles.icon}
@@ -136,7 +133,7 @@ const styles = StyleSheet.create({
   },
   labelTypo: {
     textAlign: "left",
-    color: Color.selection,
+    color: Color.neutral3,
     fontFamily: FontFamily.label1,
     fontWeight: "500",
     lineHeight: 16,
