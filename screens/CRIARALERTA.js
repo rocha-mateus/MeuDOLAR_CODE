@@ -140,7 +140,7 @@ const CRIARALERTA = () => {
           <Image
             style={styles.comprarVector03Icon}
             resizeMode="cover"
-            source={require("../assets/comprarvector03.png")}
+            source={require("../assets/comprarvector03@3x1.png")}
           />
           <Image
             style={styles.comprarVector02Icon}
@@ -174,7 +174,7 @@ const CRIARALERTA = () => {
           <Image
             style={styles.homeVector03Icon}
             resizeMode="cover"
-            source={require("../assets/homevector03.png")}
+            source={require("../assets/homevector03@3x1.png")}
           />
           <Image
             style={styles.homeVector02Icon}

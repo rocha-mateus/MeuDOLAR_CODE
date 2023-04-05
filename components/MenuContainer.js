@@ -46,7 +46,7 @@ const MenuContainer = () => {
         <Image
           style={[styles.comprarVector03Icon, styles.comprarIconLayout]}
           resizeMode="cover"
-          source={require("../assets/comprarvector03.png")}
+          source={require("../assets/comprarvector03@3x1.png")}
         />
         <Image
           style={[styles.comprarVector02Icon, styles.iconLayout]}

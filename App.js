@@ -2,10 +2,10 @@ const Stack = createNativeStackNavigator();
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
+import MudarSenha from "./screens/MudarSenha";
 import LogIn from "./screens/LogIn";
 import Recuperar from "./screens/Recuperar";
 import Conta from "./screens/Conta";
-import MudarSenha from "./screens/MudarSenha";
 import Cadastrar from "./screens/Cadastrar";
 import HOME from "./screens/HOME";
 import CRIARALERTA from "./screens/CRIARALERTA";
@@ -38,6 +38,11 @@ const App = () => {
             screenOptions={{ headerShown: false }}
           >
             <Stack.Screen
+              name="MudarSenha"
+              component={MudarSenha}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
               name="Login"
               component={LogIn}
               options={{ headerShown: false }}
@@ -50,11 +55,6 @@ const App = () => {
             <Stack.Screen
               name="Conta"
               component={Conta}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="MudarSenha"
-              component={MudarSenha}
               options={{ headerShown: false }}
             />
             <Stack.Screen
